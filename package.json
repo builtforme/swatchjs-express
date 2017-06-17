@@ -1,0 +1,34 @@
+{
+  "name": "api-methods-express",
+  "version": "0.1.0",
+  "description": "Express adapter for api-methods",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "test:debug": "mocha --debug-brk"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/builtforme/api-methods-express.git"
+  },
+  "keywords": [
+    "api-methods",
+    "express",
+    "methods",
+    "api",
+    "framework"
+  ],
+  "author": "Built For Me",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/builtforme/api-methods-express/issues"
+  },
+  "homepage": "https://github.com/builtforme/api-methods-express#readme",
+  "devDependencies": {
+    "api-methods": "file:../api-methods",
+    "chai": "^4.0.2",
+    "express": "^4.15.3",
+    "mocha": "^3.4.2",
+    "sinon": "^2.3.4"
+  }
+}
