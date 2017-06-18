@@ -4,7 +4,7 @@
   "description": "Express adapter for api-methods",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
+    "test": "nyc mocha",
     "test:debug": "mocha --debug-brk"
   },
   "repository": {
@@ -29,6 +29,7 @@
     "chai": "^4.0.2",
     "express": "^4.15.3",
     "mocha": "^3.4.2",
+    "nyc": "^11.0.2",
     "sinon": "^2.3.4"
   }
 }
