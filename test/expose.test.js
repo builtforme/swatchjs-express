@@ -27,10 +27,11 @@ function getModel() {
 
 describe('expose', () => {
   it('should only register the requested verbs', () => {
-    const app = getApp(['get']);
+    const verbs = [ 'get' ];
+    const app = getApp(verbs);
     const model = getModel();
     const options = {
-      verbs: [ 'get' ],
+      verbs: verbs,
     };
 
     expose(app, model, options);
@@ -49,6 +50,23 @@ describe('expose', () => {
     verbs.forEach(verb => {
       expect(app[verb].getCall(0).calledWith('/add')).to.be.true;
       expect(app[verb].getCall(1).calledWith('/sub')).to.be.true;
+    });
+  });
+
+  it('should use the specified prefix', () => {
+    const verbs = Object.keys(handlers);
+    const app = getApp(verbs);
+    const model = getModel();
+    const prefix = 'api';
+    const options = {
+      prefix,
+    };
+
+    expose(app, model, options);
+
+    verbs.forEach(verb => {
+      expect(app[verb].getCall(0).calledWith(`/${prefix}/add`)).to.be.true;
+      expect(app[verb].getCall(1).calledWith(`/${prefix}/sub`)).to.be.true;
     });
   });
 });

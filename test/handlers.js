@@ -7,8 +7,7 @@ const handlers = require('../lib/handlers');
 describe('handlers', () => {
   describe('index', () => {
     it('should contain all verbs', () => {
-      expect(Object.keys(handlers)).to.have.lengthOf(2);
-      expect(handlers).to.include.all.keys('get', 'post');
+      expect(handlers).to.be.an('object').that.has.all.keys('get', 'post');
     });
   });
 

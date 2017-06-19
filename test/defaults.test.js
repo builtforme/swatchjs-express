@@ -8,7 +8,7 @@ describe('defaults', () => {
   describe('options', () => {
     it('should include all default options', () => {
       const options = defaults();
-      expect(options).to.be.an('object').that.has.all.keys('verbs');
+      expect(options).to.be.an('object').that.has.all.keys('verbs', 'prefix');
     });
   });
 
@@ -37,6 +37,20 @@ describe('defaults', () => {
 
     it('should use the default verbs if a list is not passed in', () => {
       expect(defaults().verbs).to.deep.equal(Object.keys(handlers));
+    });
+  });
+
+  describe('prefix', () => {
+    it('should use the passed prefix', () => {
+      const prefix = 'api';
+      const options = {
+        prefix,
+      };
+      expect(defaults(options).prefix).to.equal(`/${prefix}/`);
+    });
+
+    it('should use the default prefix if not specified', () => {
+      expect(defaults({}).prefix).to.equal('/');
     });
   });
 });
