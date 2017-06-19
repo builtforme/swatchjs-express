@@ -1,6 +1,6 @@
 # api-methods-express
 
-An adapter to expose [API methods]() via [Express](http://expressjs.com/).
+An adapter to expose [API methods]() via [Express](https://www.npmjs.com/package/express).
 
 ## Quick start
 
