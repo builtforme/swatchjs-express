@@ -4,7 +4,7 @@ const expect = require('chai').expect;
 const sinon = require('sinon');
 const apiMethods = require('api-methods');
 const expose = require('../lib/expose');
-const webMethods = require('../lib/web-methods');
+const handlers = require('../lib/handlers');
 
 function getApp(verbs) {
   const app = {};
@@ -40,7 +40,7 @@ describe('expose', () => {
   });
 
   it('should register all verbs if no verbs were specified', () => {
-    const verbs = Object.keys(webMethods);
+    const verbs = Object.keys(handlers);
     const app = getApp(verbs);
     const model = getModel();
 

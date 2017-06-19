@@ -2,7 +2,7 @@
 
 const expect = require('chai').expect;
 const defaults = require('../lib/defaults');
-const verbs = require('../lib/web-methods');
+const handlers = require('../lib/handlers');
 
 describe('defaults', () => {
   describe('options', () => {
@@ -36,7 +36,7 @@ describe('defaults', () => {
     });
 
     it('should use the default verbs if a list is not passed in', () => {
-      expect(defaults().verbs).to.deep.equal(Object.keys(verbs));
+      expect(defaults().verbs).to.deep.equal(Object.keys(handlers));
     });
   });
 });
