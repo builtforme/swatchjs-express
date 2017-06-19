@@ -27,7 +27,6 @@
   "devDependencies": {
     "api-methods": "file:../api-methods",
     "chai": "^4.0.2",
-    "express": "^4.15.3",
     "mocha": "^3.4.2",
     "nyc": "^11.0.2",
     "sinon": "^2.3.4"
