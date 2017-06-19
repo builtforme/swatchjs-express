@@ -3,10 +3,10 @@
 const expect = require('chai').expect;
 const sinon = require('sinon');
 const apiMethods = require('api-methods');
-const load = require('../lib/load');
+const expose = require('../lib/expose');
 
 function getModel() {
-  const model = apiMethods.load({
+  const model = apiMethods({
     "add": {
       handler: (a, b) => a + b,
     },
@@ -18,7 +18,7 @@ function getModel() {
   return model;
 };
 
-describe('load', () => {
+describe('expose', () => {
   let app;
 
   beforeEach(() => {
@@ -33,7 +33,7 @@ describe('load', () => {
       verbs: [ 'get' ],
     };
 
-    load(app, model, options);
+    expose(app, model, options);
 
     expect(app.get.getCall(0).calledWith('/add')).to.be.true;
     expect(app.get.getCall(1).calledWith('/sub')).to.be.true;

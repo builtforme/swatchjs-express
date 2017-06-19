@@ -1,7 +1,5 @@
 'use strict';
 
-const load = require('./lib/load');
+const expose = require('./lib/expose');
 
-module.exports = {
-  load,
-};
+module.exports = expose;

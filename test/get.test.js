@@ -7,7 +7,7 @@ const get = require('../lib/web-methods/get');
 
 describe('get', () => {
   it('should write a JSON success response if function succeeds', done => {
-    const model = apiMethods.load({
+    const model = apiMethods({
       "add": {
         handler: (a, b) => a + b,
       },
@@ -33,7 +33,7 @@ describe('get', () => {
   });
 
   it('should write a JSON error response if function fail', done => {
-    const model = apiMethods.load({
+    const model = apiMethods({
       "add": {
         handler: (a, b) => { throw 'some_error'; },
       },
