@@ -2,7 +2,7 @@
 
 const expect = require('chai').expect;
 const sinon = require('sinon');
-const apiMethods = require('api-methods');
+const swatch = require('swatchjs');
 const expose = require('../lib/expose');
 const handlers = require('../lib/handlers');
 
@@ -13,7 +13,7 @@ function getApp(verbs) {
 }
 
 function getModel() {
-  const model = apiMethods({
+  const model = swatch({
     "add": {
       handler: (a, b) => a + b,
     },

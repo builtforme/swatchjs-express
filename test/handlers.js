@@ -1,7 +1,7 @@
 'use strict';
 
 const expect = require('chai').expect;
-const apiMethods = require('api-methods');
+const swatch = require('swatchjs');
 const handlers = require('../lib/handlers');
 
 describe('handlers', () => {
@@ -39,7 +39,7 @@ describe('handlers', () => {
 });
 
 function invokeHandler(fn, verb, expected, done) {
-  const model = apiMethods({
+  const model = swatch({
     fn: fn,
   });
   const req = createReq({a: 1, b: 2}, verb);

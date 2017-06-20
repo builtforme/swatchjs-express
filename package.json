@@ -1,7 +1,7 @@
 {
-  "name": "api-methods-express",
+  "name": "swatchjs-express",
   "version": "0.1.0",
-  "description": "Express adapter for api-methods",
+  "description": "Express adapter for swatchjs",
   "main": "index.js",
   "scripts": {
     "test": "nyc mocha",
@@ -9,10 +9,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/builtforme/api-methods-express.git"
+    "url": "git+https://github.com/builtforme/swatchjs-express.git"
   },
   "keywords": [
-    "api-methods",
+    "swatchjs",
     "express",
     "methods",
     "api",
@@ -21,11 +21,11 @@
   "author": "Built For Me",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/builtforme/api-methods-express/issues"
+    "url": "https://github.com/builtforme/swatchjs-express/issues"
   },
-  "homepage": "https://github.com/builtforme/api-methods-express#readme",
+  "homepage": "https://github.com/builtforme/swatchjs-express#readme",
   "devDependencies": {
-    "api-methods": "file:../api-methods",
+    "swatchjs": "file:../swatchjs",
     "chai": "^4.0.2",
     "mocha": "^3.4.2",
     "nyc": "^11.0.2",

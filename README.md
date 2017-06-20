@@ -1,14 +1,14 @@
-# api-methods-express
+# swatchjs-express
 
-An adapter to expose [API methods]() via [Express](https://www.npmjs.com/package/express).
+An adapter to expose [swatchjs]() via [Express](https://www.npmjs.com/package/express).
 
 ## Quick start
 
-The following exposes the simple API from the `api-method`'s README file:
+The following exposes the simple API from the `swatchjs`'s README file:
 
 ```javascript
-const apiMethods = require('api-methods');
-const apiMethodsExpress = require('api-methods-express');
+const swatch = require('swatchjs');
+const swatchExpress = require('swatchjs-express');
 
 const model = apiMethods({
     "numbers.add": (a, b) => Number(a) + Number(b),
@@ -16,7 +16,7 @@ const model = apiMethods({
 });
 
 const app = express();
-apiMethodsExpress(app, model);
+swatchExpress(app, model);
 ```
 
 That's it! No HTTP headers, status codes, or any other distracting verbiage.
@@ -101,21 +101,21 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 
 ## API reference
 
-### The `apiMethodsExpress` function
+### The `swatchExpress` function
 
 ```javascript
-const apiMethodsExpress = require('api-methods-express');
+const swatchExpress = require('swatch-express');
 
-apiMethodsExpress(app, model, options);
+swatchExpress(app, model, options);
 ```
 
-Loading this library will result in a function  (`apiMethodsExpress` in the
+Loading this library will result in a function  (`swatchExpress` in the
 example above) which takes the following parameters:
 
 | Parameter | Required  | Description   |
 |:---       |:---       |:---           |
 |`app`      | Yes       | The Express app to populate.              |
-|`model`    | Yes       | The API model created by `api-methods`.   |
+|`model`    | Yes       | The API model created by `swatchjs`.      |
 |`options`  | No        | Additional options when exposing the API. When present, must be an object. |
 
 The `options` object has the following properties:
