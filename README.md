@@ -10,7 +10,7 @@ The following exposes the simple API from the `swatchjs`'s README file:
 const swatch = require('swatchjs');
 const swatchExpress = require('swatchjs-express');
 
-const model = apiMethods({
+const model = swatch({
     "numbers.add": (a, b) => Number(a) + Number(b),
     "numbers.sub": (a, b) => Number(a) - Number(b),
 });
