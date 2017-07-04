@@ -2,7 +2,7 @@
 
 const expect = require('chai').expect;
 const swatch = require('swatchjs');
-const handlers = require('../lib/handlers');
+const handlers = require('../../lib/handlers');
 
 describe('handlers', () => {
   describe('index', () => {
