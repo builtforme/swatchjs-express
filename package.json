@@ -30,5 +30,10 @@
     "mocha": "^3.4.2",
     "nyc": "^11.0.2",
     "sinon": "^2.3.4"
-  }
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "dependencies": {}
 }
