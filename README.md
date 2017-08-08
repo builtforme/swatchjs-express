@@ -1,6 +1,6 @@
 # swatchjs-express
 
-[![CircleCI](https://circleci.com/gh/builtforme/swatchjs-express.svg?style=svg)](https://circleci.com/gh/builtforme/swatchjs-express) | [![Known Vulnerabilities](https://snyk.io/test/github/builtforme/swatchjs-express/badge.svg)](https://snyk.io/test/github/builtforme/swatchjs-express)
+[![CircleCI](https://circleci.com/gh/builtforme/swatchjs-express.svg?style=svg)](https://circleci.com/gh/builtforme/swatchjs-express) | [![codecov](https://codecov.io/gh/builtforme/swatchjs-express/branch/master/graph/badge.svg)](https://codecov.io/gh/builtforme/swatchjs-express) | [![Coverage Status](https://coveralls.io/repos/github/builtforme/swatchjs-express/badge.svg?branch=master)](https://coveralls.io/github/builtforme/swatchjs-express?branch=master) | [![Known Vulnerabilities](https://snyk.io/test/github/builtforme/swatchjs-express/badge.svg)](https://snyk.io/test/github/builtforme/swatchjs-express)
 
 An adapter to expose [swatchjs]() via [Express](https://www.npmjs.com/package/express).
 
