@@ -25,11 +25,13 @@
   },
   "homepage": "https://github.com/builtforme/swatchjs-express#readme",
   "devDependencies": {
-    "swatchjs": "^0.1.0",
     "chai": "^4.0.2",
+    "codecov": "^2.3.0",
+    "coveralls": "^2.13.1",
     "mocha": "^3.4.2",
     "nyc": "^11.0.2",
-    "sinon": "^2.3.4"
+    "sinon": "^2.3.4",
+    "swatchjs": "^0.1.0"
   },
   "directories": {
     "lib": "lib",
