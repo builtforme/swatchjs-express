@@ -29,6 +29,7 @@ describe('handlers', () => {
           const expected = {
             ok: false,
             error: 'some_error',
+            details: undefined,
           };
 
           invokeHandler(fn, verb, expected, done);
