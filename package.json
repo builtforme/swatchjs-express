@@ -1,6 +1,6 @@
 {
   "name": "swatchjs-express",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Express adapter for swatchjs",
   "main": "index.js",
   "scripts": {
@@ -33,7 +33,7 @@
     "mocha": "^3.4.2",
     "nyc": "^11.0.2",
     "sinon": "^2.3.4",
-    "swatchjs": "^0.1.0"
+    "swatchjs": "^0.1.37"
   },
   "directories": {
     "lib": "lib",
