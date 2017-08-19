@@ -47,14 +47,32 @@ describe('handlers', () => {
           invokeHandler(fn, verb, expected, done);
         });
 
-        it('should write a JSON error response if function fail', (done) => {
+        it('should write a JSON error response if function fails', (done) => {
           const fn = (a, b) => {
-            throw new Error(`some_error: ${a + b}`);
+            const err = `some_error: ${a + b}`;
+            throw err;
           };
           const expected = {
             ok: false,
             error: 'some_error: 3',
             details: undefined,
+          };
+
+          invokeHandler(fn, verb, expected, done);
+        });
+
+        it('should write a JSON error response with details if function fails', (done) => {
+          const fn = (a, b) => {
+            const err = {
+              message: 'some_error',
+              details: `Result: ${a + b}`,
+            };
+            throw err;
+          };
+          const expected = {
+            ok: false,
+            error: 'some_error',
+            details: 'Result: 3',
           };
 
           invokeHandler(fn, verb, expected, done);
