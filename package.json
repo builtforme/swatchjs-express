@@ -6,7 +6,7 @@
   "scripts": {
     "test": "nyc mocha 'test/**/*.test.js'",
     "test:debug": "mocha --debug-brk",
-    "lint": "./node_modules/.bin/eslint --ext .js index.js lib/*.js test/*.js",
+    "lint": "./node_modules/.bin/eslint --ext .js index.js lib/**/*.js test/**/*.js",
     "coveralls": "nyc report --reporter=text-lcov | ./node_modules/coveralls/bin/coveralls.js",
     "codecov": "nyc report --reporter=lcov > coverage.lcov && codecov"
   },
@@ -35,9 +35,10 @@
     "eslint-config-airbnb-base": "^11.3.1",
     "eslint-plugin-import": "^2.7.0",
     "mocha": "^3.5.0",
+    "mocha-eslint": "^4.1.0",
     "nyc": "^11.1.0",
     "sinon": "^3.2.1",
-    "swatchjs": "^2.0.0"
+    "swatchjs": "^0.2.2"
   },
   "directories": {
     "lib": "lib",
