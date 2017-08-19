@@ -1,13 +1,14 @@
 {
   "name": "swatchjs-express",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Express adapter for swatchjs",
   "main": "index.js",
   "scripts": {
     "test": "nyc mocha 'test/**/*.test.js'",
+    "test:debug": "mocha --debug-brk",
+    "lint": "./node_modules/.bin/eslint --ext .js index.js lib/*.js test/*.js",
     "coveralls": "nyc report --reporter=text-lcov | ./node_modules/coveralls/bin/coveralls.js",
-    "codecov": "nyc report --reporter=lcov > coverage.lcov && codecov",
-    "test:debug": "mocha --debug-brk"
+    "codecov": "nyc report --reporter=lcov > coverage.lcov && codecov"
   },
   "repository": {
     "type": "git",
@@ -27,13 +28,16 @@
   },
   "homepage": "https://github.com/builtforme/swatchjs-express#readme",
   "devDependencies": {
-    "chai": "^4.0.2",
+    "chai": "^4.1.1",
     "codecov": "^2.3.0",
     "coveralls": "^2.13.1",
-    "mocha": "^3.4.2",
-    "nyc": "^11.0.2",
-    "sinon": "^2.3.4",
-    "swatchjs": "^0.1.37"
+    "eslint": "^4.4.1",
+    "eslint-config-airbnb-base": "^11.3.1",
+    "eslint-plugin-import": "^2.7.0",
+    "mocha": "^3.5.0",
+    "nyc": "^11.1.0",
+    "sinon": "^3.2.1",
+    "swatchjs": "^2.0.0"
   },
   "directories": {
     "lib": "lib",
