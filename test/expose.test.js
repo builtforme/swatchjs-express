@@ -1,5 +1,3 @@
-'use strict';
-
 const expect = require('chai').expect;
 const sinon = require('sinon');
 const swatch = require('swatchjs');
@@ -8,36 +6,36 @@ const handlers = require('../lib/handlers');
 
 function getApp(verbs) {
   const app = {};
-  verbs.forEach(verb => app[verb] = sinon.spy());
+  verbs.forEach((verb) => { app[verb] = sinon.spy(); });
   return app;
 }
 
 function getModel() {
   const model = swatch({
-    "add": {
+    add: {
       handler: (a, b) => a + b,
     },
-    "sub": {
+    sub: {
       handler: (a, b) => a - b,
     },
   });
 
   return model;
-};
+}
 
 describe('expose', () => {
   it('should only register the requested verbs', () => {
-    const verbs = [ 'get' ];
+    const verbs = ['get'];
     const app = getApp(verbs);
     const model = getModel();
     const options = {
-      verbs: verbs,
+      verbs,
     };
 
     expose(app, model, options);
 
-    expect(app.get.getCall(0).calledWith('/add')).to.be.true;
-    expect(app.get.getCall(1).calledWith('/sub')).to.be.true;
+    expect(app.get.getCall(0).calledWith('/add')).to.equal(true);
+    expect(app.get.getCall(1).calledWith('/sub')).to.equal(true);
   });
 
   it('should register all verbs if no verbs were specified', () => {
@@ -47,9 +45,9 @@ describe('expose', () => {
 
     expose(app, model);
 
-    verbs.forEach(verb => {
-      expect(app[verb].getCall(0).calledWith('/add')).to.be.true;
-      expect(app[verb].getCall(1).calledWith('/sub')).to.be.true;
+    verbs.forEach((verb) => {
+      expect(app[verb].getCall(0).calledWith('/add')).to.equal(true);
+      expect(app[verb].getCall(1).calledWith('/sub')).to.equal(true);
     });
   });
 
@@ -64,9 +62,9 @@ describe('expose', () => {
 
     expose(app, model, options);
 
-    verbs.forEach(verb => {
-      expect(app[verb].getCall(0).calledWith(`/${prefix}/add`)).to.be.true;
-      expect(app[verb].getCall(1).calledWith(`/${prefix}/sub`)).to.be.true;
+    verbs.forEach((verb) => {
+      expect(app[verb].getCall(0).calledWith(`/${prefix}/add`)).equal(true);
+      expect(app[verb].getCall(1).calledWith(`/${prefix}/sub`)).equal(true);
     });
   });
 });

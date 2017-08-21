@@ -1,5 +1,3 @@
-'use strict';
-
 const expect = require('chai').expect;
 const defaults = require('../lib/defaults');
 const handlers = require('../lib/handlers');
