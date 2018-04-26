@@ -44,5 +44,7 @@
     "lib": "lib",
     "test": "test"
   },
-  "dependencies": {}
+  "dependencies": {
+    "bunyan": "^1.8.12"
+  }
 }
