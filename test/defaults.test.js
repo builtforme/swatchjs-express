@@ -51,4 +51,33 @@ describe('defaults', () => {
       expect(defaults({}).prefix).to.equal('/');
     });
   });
+
+  describe('onException', () => {
+    it('should use the passed onException method', () => {
+      function onExceptionHandler() {
+      }
+      const options = {
+        onException: onExceptionHandler,
+      };
+
+      expect(defaults(options).onException).to.deep.equal(onExceptionHandler);
+    });
+
+    it('should throw an error if the passed onException property is not a method', () => {
+      const options = {
+        onException: true,
+      };
+
+      expect(() => defaults(options).onException).to.throw();
+    });
+
+    it('should use the default method if not specified', () => {
+      const defaultFunction = defaults({}).onException;
+      expect(typeof defaultFunction).to.equal('function');
+
+      // Make sure the default method rethrows any error
+      const err = { x: true };
+      expect(() => defaultFunction(err)).to.throw();
+    });
+  });
 });
