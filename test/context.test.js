@@ -3,7 +3,7 @@ const context = require('../lib/context');
 
 describe('context', () => {
   describe('init', () => {
-    it('returns a middleware function', async () => {
+    it('returns a middleware function', (done) => {
       const middleware = context.init({
         onException: function onException() {},
       });
@@ -12,9 +12,9 @@ describe('context', () => {
       const res = {};
       async function next() {
         expect(req.expressCtx).not.to.be.null;
-        return Promise.resolve();
+        done();
       }
-      await middleware(req, res, next);
+      middleware(req, res, next);
     });
   });
 });
