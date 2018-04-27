@@ -45,9 +45,7 @@ describe('handlers', () => {
     Object.keys(handlers).forEach((verb) => {
       describe(verb, () => {
         it('should write a JSON success response if function succeeds', (done) => {
-          const fn = (a, b) => {
-            return a + b;
-          };
+          const fn = (a, b) => a + b;
           const expected = {
             ok: true,
             result: 3,
