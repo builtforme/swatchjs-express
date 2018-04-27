@@ -8,7 +8,14 @@ function createReq(params, verb) {
     post: 'body',
   };
 
-  const req = {};
+  const req = {
+    expressCtx: {
+      swatchCtx: {
+        keys: Object.keys(params),
+        params,
+      },
+    },
+  };
   req[fields[verb]] = params;
   return req;
 }
@@ -38,7 +45,9 @@ describe('handlers', () => {
     Object.keys(handlers).forEach((verb) => {
       describe(verb, () => {
         it('should write a JSON success response if function succeeds', (done) => {
-          const fn = (a, b) => a + b;
+          const fn = (a, b) => {
+            return a + b;
+          };
           const expected = {
             ok: true,
             result: 3,
