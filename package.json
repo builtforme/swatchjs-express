@@ -42,11 +42,14 @@
     "mocha-eslint": "^4.1.0",
     "nyc": "^11.1.0",
     "sinon": "^3.2.1",
-    "swatchjs": "^0.2.2"
+    "swatchjs": "^3.1.1"
   },
   "directories": {
     "lib": "lib",
     "test": "test"
+  },
+  "peerDependencies": {
+    "swatchjs": "^3.1.1"
   },
   "dependencies": {
     "bunyan": "^1.8.12"
