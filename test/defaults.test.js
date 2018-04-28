@@ -128,8 +128,9 @@ describe('defaults', () => {
       };
       const res = undefined;
 
-      function authAdapter() {
-        throw new Error('fake error in auth adapter');
+      async function authAdapter() {
+        // throw new Error('fake error in auth adapter');
+        return Promise.reject(new Error('fake error in auth adapter'));
       }
 
       const options = {
@@ -139,7 +140,7 @@ describe('defaults', () => {
       defaults(options).authAdapter(req, res, (err) => {
         expect(err.message).to.equal('fake error in auth adapter');
         done();
-        Promise.resolve();
+        return Promise.resolve();
       });
     });
   });
