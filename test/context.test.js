@@ -12,6 +12,9 @@ describe('context', () => {
       const res = {};
       async function next() {
         expect(req.expressCtx).not.to.be.a('null');
+
+        // Make sure we can get the expressCtx from the swatchCtx
+        expect(req.expressCtx.swatchCtx.expressCtx()).to.deep.equal(req.expressCtx);
         done();
       }
       middleware(req, res, next);
