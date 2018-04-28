@@ -80,4 +80,67 @@ describe('defaults', () => {
       expect(() => defaultFunction(err)).to.throw();
     });
   });
+
+  describe('authAdapter', () => {
+    it('should use the passed authAdapter method', (done) => {
+      const req = {
+        expressCtx: 'a',
+      };
+      const res = undefined;
+
+      function authAdapter(ctx) {
+        expect(ctx).to.deep.equal(req.expressCtx);
+        done();
+      }
+
+      const options = {
+        authAdapter,
+      };
+
+      defaults(options).authAdapter(req, res, () => Promise.resolve());
+    });
+
+    it('should throw an error if the passed authAdapter property is not a method', () => {
+      const options = {
+        authAdapter: true,
+      };
+
+      expect(() => defaults(options).authAdapter).to.throw();
+    });
+
+    it('should use the default authAdapter if not specified', (done) => {
+      const req = {
+        expressCtx: 'a',
+      };
+      const res = undefined;
+      const defaultFunction = defaults({}).authAdapter;
+      expect(typeof defaultFunction).to.equal('function');
+
+      defaultFunction(req, res, () => {
+        done();
+        Promise.resolve();
+      });
+    });
+
+    it('calls next with an error if the authAdapter throws', (done) => {
+      const req = {
+        expressCtx: 'a',
+      };
+      const res = undefined;
+
+      function authAdapter() {
+        throw new Error('fake error in auth adapter');
+      }
+
+      const options = {
+        authAdapter,
+      };
+
+      defaults(options).authAdapter(req, res, (err) => {
+        expect(err.message).to.equal('fake error in auth adapter');
+        done();
+        Promise.resolve();
+      });
+    });
+  });
 });
