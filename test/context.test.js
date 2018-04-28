@@ -11,7 +11,7 @@ describe('context', () => {
       const req = {};
       const res = {};
       async function next() {
-        expect(req.expressCtx).not.to.be.null;
+        expect(req.expressCtx).not.to.be.a('null');
         done();
       }
       middleware(req, res, next);

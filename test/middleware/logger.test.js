@@ -1,5 +1,4 @@
 const expect = require('chai').expect;
-const sinon = require('sinon');
 const logger = require('../../lib/middleware/logger').default;
 
 describe('logger', () => {
@@ -25,7 +24,7 @@ describe('logger', () => {
     };
     const res = undefined;
     await logger.init(req, res, () => {
-      expect(req.expressCtx.swatchCtx.logger).to.exist;
+      expect(req.expressCtx.swatchCtx.logger).not.to.be.an('undefined');
     });
   });
 });
