@@ -67,4 +67,37 @@ describe('expose', () => {
       expect(app[verb].getCall(1).calledWith(`/${prefix}/sub`)).equal(true);
     });
   });
+
+  it('throws an exception when authAdapter is set and noAuth is true', () => {
+    const verbs = Object.keys(handlers);
+    const app = getApp(verbs);
+    const model = getModel();
+    const prefix = 'api';
+    const options = {
+      prefix,
+      authAdapter: function authAdapter() {},
+    };
+    model[0].metadata.noAuth = true;
+
+    expect(() => expose(app, model, options)).to.throw();
+  });
+
+  it('works when authAdapter is set and noAuth is false', () => {
+    const verbs = Object.keys(handlers);
+    const app = getApp(verbs);
+    const model = getModel();
+    const prefix = 'api';
+    const options = {
+      prefix,
+      authAdapter: function authAdapter() {},
+    };
+    model[0].metadata.noAuth = false;
+
+    expect(() => expose(app, model, options)).not.to.throw();
+
+    verbs.forEach((verb) => {
+      expect(app[verb].getCall(0).calledWith(`/${prefix}/add`)).equal(true);
+      expect(app[verb].getCall(1).calledWith(`/${prefix}/sub`)).equal(true);
+    });
+  });
 });

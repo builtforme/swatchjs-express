@@ -6,7 +6,7 @@ describe('defaults', () => {
   describe('options', () => {
     it('should include all default options', () => {
       const options = defaults();
-      expect(options).to.be.an('object').that.has.all.keys('verbs', 'prefix', 'onException');
+      expect(options).to.be.an('object').that.has.all.keys('verbs', 'prefix', 'onException', 'authAdapter');
     });
   });
 
