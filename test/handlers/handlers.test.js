@@ -8,7 +8,14 @@ function createReq(params, verb) {
     post: 'body',
   };
 
-  const req = {};
+  const req = {
+    expressCtx: {
+      swatchCtx: {
+        keys: Object.keys(params),
+        params,
+      },
+    },
+  };
   req[fields[verb]] = params;
   return req;
 }
