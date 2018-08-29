@@ -1,4 +1,5 @@
-const expect = require('chai').expect;
+const { expect } = require('chai');
+
 const logger = require('../../lib/middleware/logger').default;
 
 describe('logger', () => {
