@@ -1,6 +1,7 @@
-const expect = require('chai').expect;
+const { expect } = require('chai');
 const sinon = require('sinon');
 const swatch = require('swatchjs');
+
 const expose = require('../lib/expose');
 const handlers = require('../lib/handlers');
 

@@ -1,4 +1,5 @@
-const expect = require('chai').expect;
+const { expect } = require('chai');
+
 const swatchExpress = require('..');
 
 describe('index', () => {

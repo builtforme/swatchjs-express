@@ -1,5 +1,6 @@
-const expect = require('chai').expect;
+const { expect } = require('chai');
 const swatch = require('swatchjs');
+
 const handlers = require('../../lib/handlers');
 
 function createReq(params, verb) {
