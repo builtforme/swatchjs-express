@@ -5,23 +5,25 @@ const validation = require('../lib/validation');
 describe('validation', () => {
   it('returns middleware which calls paramFn first, then validateFn', (done) => {
     const req = {
-      params: 'x',
+      params: { x: true },
       expressCtx: {
-        swatchCtx: {
-
-        },
+        swatchCtx: {},
       },
     };
     const res = undefined;
-    function validate(ctx, params) {
+
+    function validateFn(ctx, params) {
       expect(ctx).to.deep.equal(req.expressCtx);
       expect(params).to.deep.equal(req.params);
+
       done();
     }
 
-    function param(request) {
+    function paramFn(request) {
       return request.params;
     }
-    validation.middleware(validate, param)(req, res, () => Promise.resolve);
+
+    const middlewareFn = validation.middleware(validateFn, paramFn);
+    middlewareFn(req, res, () => Promise.resolve);
   });
 });

@@ -8,7 +8,7 @@
     ],
     "all": true,
     "statements": 100,
-    "branch": 88.46,
+    "branch": 89.47,
     "functions": 100,
     "lines": 100,
     "check-coverage": true
