@@ -1,6 +1,6 @@
 {
   "name": "swatchjs-express",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Express adapter for swatchjs",
   "main": "index.js",
   "scripts": {
