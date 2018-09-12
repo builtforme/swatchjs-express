@@ -1,6 +1,6 @@
 const { expect } = require('chai');
 
-const logger = require('../../lib/middleware/logger').default;
+const logger = require('../../lib/middleware/logger');
 
 describe('logger', () => {
   it('uses the expressCtx.log logger if available', async () => {
