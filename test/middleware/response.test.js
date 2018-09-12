@@ -1,7 +1,7 @@
 const { expect } = require('chai');
 const sinon = require('sinon');
 
-const response = require('../../lib/middleware/response').default;
+const response = require('../../lib/middleware/response');
 
 describe('response', () => {
   describe('error', () => {
